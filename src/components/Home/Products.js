@@ -31,7 +31,7 @@ export default function Products() {
         return (
           <section className="py-5">
             <div className="container">
-              <Title title="our products" />
+              <Title title="Selection" />
               <div className="row">
                 {data.products.edges.map(({ node: product }) => {
                   return <Product key={product.id} product={product} />;

@@ -12,14 +12,7 @@ import Contact from "../components/Home/Contact";
 const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <BackgroundSection
-      img={data.img.childImageSharp.fluid}
-      title="Abad Stamps"
-    />
-    {/* <Info /> */}
-    {/* <Menu items={data.menu} /> */}
-    {/* <Products /> */}
-    {/* <Contact /> */}
+    <Products />
   </Layout>
 );
 

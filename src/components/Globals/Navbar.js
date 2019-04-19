@@ -17,12 +17,20 @@ export default class Navbar extends Component {
         id: 2,
         path: "/about",
         text: "about"
+      },
+      {
+        id: 3,
+        path: "/products",
+        text: "products"
       }
     ]
   };
   navbarHandler = () => {
     this.state.navbarOpen
-      ? this.setState({ navbarOpen: false, css: "collapse navbar-collapse" })
+      ? this.setState({
+          navbarOpen: false,
+          css: "collapse navbar-collapse"
+        })
       : this.setState({
           navbarOpen: true,
           css: "collapse navbar-collapse show"

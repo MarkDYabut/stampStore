@@ -5,6 +5,8 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import BackgroundSection from "../components/Globals/BackgroundSection";
 import Info from "../components/Home/Info";
+import Contact from "../components/Home/Contact";
+
 const AboutPage = ({ data }) => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
@@ -14,6 +16,7 @@ const AboutPage = ({ data }) => (
       styleClass="about-background"
     />
     <Info />
+    <Contact />
   </Layout>
 );
 
