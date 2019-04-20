@@ -16,10 +16,10 @@ const IndexPage = ({ data }) => (
       img={data.img.childImageSharp.fluid}
       title="Abad Stamps"
     />
-    {/* <Info /> */}
+    <Info />
     {/* <Menu items={data.menu} /> */}
     {/* <Products /> */}
-    {/* <Contact /> */}
+    <Contact />
   </Layout>
 );
 
