@@ -38,7 +38,7 @@ export default class BigMenu extends Component {
       return (
         <section className="menu py-5">
           <div className="container">
-            <Title title="best of our menu" />
+            <Title title="Collection" />
             {/* categories */}
             <div className="row mb-5">
               <div className="col-10 mx-auto text-center">
