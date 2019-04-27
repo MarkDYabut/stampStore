@@ -67,6 +67,8 @@ export default class BigMenu extends Component {
                     className="col-11 col-md-6 my-3 d-flex mx-auto"
                   >
                     <div>
+                      {/* <Img fluid={product.image.fluid} className="card-img-top" /> */}
+
                       <Img fixed={node.image.fixed} />
                     </div>
                     {/* item text */}
