@@ -24,3 +24,23 @@ export default function Product({ product }) {
     </div>
   );
 }
+
+<div className="col-10 col-sm-8 col-md-6 col-lg-4 mx-auto my-3">
+  <div className="card" style={{ minHeight: "100%" }}>
+    <Img fluid={node.image.fluid} className="card-img-top" />
+    <div className="card-body text-center">
+      <h6>{node.title}</h6>
+      <h6>${node.price}</h6>
+      <button
+        className="btn btn-yellow mt-3 text-capitalize snipcart-add-item"
+        data-item-id={node.id}
+        data-item-name={node.title}
+        data-item-price={node.price}
+        data-item-image={node.image.fluid.src}
+        data-item-url="https://abad-stamps.netlify.com/products"
+      >
+        add to cart
+      </button>
+    </div>
+  </div>
+</div>;

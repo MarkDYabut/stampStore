@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Title from "../Globals/Title";
 import Img from "gatsby-image";
+import Product from "./Product";
 
 const getCategories = items => {
   let tempItems = items.map(items => {
@@ -8,7 +9,7 @@ const getCategories = items => {
   });
   let tempCategories = new Set(tempItems);
   let categories = Array.from(tempCategories);
-  categories = ["all", ...categories];
+  categories = [...categories];
   return categories;
 };
 export default class BigMenu extends Component {
@@ -16,27 +17,21 @@ export default class BigMenu extends Component {
     super(props);
     this.state = {
       items: props.items.edges,
-      coffeeItems: props.items.edges,
+      coffeeItems: [],
       categories: getCategories(props.items.edges)
     };
   }
   handleItems = category => {
     let tempItems = [...this.state.items];
-    if (category === "all") {
-      this.setState(() => {
-        return { coffeeItems: tempItems };
-      });
-    } else {
-      let items = tempItems.filter(({ node }) => node.category === category);
-      this.setState(() => {
-        return { coffeeItems: items };
-      });
-    }
+    let items = tempItems.filter(({ node }) => node.category === category);
+    this.setState(() => {
+      return { coffeeItems: items };
+    });
   };
   render() {
     if (this.state.items.length > 0) {
       return (
-        <section className="menu py-5">
+        <section className="menu py-1">
           <div className="container">
             <Title title="" />
             {/* categories */}
@@ -59,35 +54,39 @@ export default class BigMenu extends Component {
               </div>
             </div>
             {/* items */}
-            <div className="row ">
-              {this.state.coffeeItems.map(({ node }) => {
-                return (
-                  <div
-                    key={node.id}
-                    className="col-11 col-md-6 my-3 d-flex mx-auto"
-                  >
-                    <div>
-                      {/* <Img fluid={product.image.fluid} className="card-img-top" /> */}
-
-                      <Img fixed={node.image.fixed} />
-                    </div>
-                    {/* item text */}
-                    <div className="flex-grow-1 px-3">
-                      <div className="d-flex justify-content-between">
-                        <h6 className="mb-0">
-                          <small>{node.title}</small>
-                        </h6>
-                        <h6 className="mb-0 text-yellow">
-                          <small>${node.price}</small>
-                        </h6>
+            <div className="container-fluid">
+              <div className="row">
+                {this.state.coffeeItems.map(({ node }) => {
+                  return (
+                    <div key={node.id} className="container">
+                      {" "}
+                      <div className="card" style={{ minHeight: "100%" }}>
+                        <Img
+                          fluid={node.image.fluid}
+                          className="card-img-top"
+                        />
+                        <div className="card-body text-center">
+                          <h6>{node.title}</h6>
+                          <h6>${node.price}</h6>
+                          <p className="text-muted">
+                            <small>{node.description.description}</small>
+                          </p>
+                          <button
+                            className="btn btn-yellow mt-3 text-capitalize snipcart-add-item"
+                            data-item-id={node.id}
+                            data-item-name={node.title}
+                            data-item-price={node.price}
+                            data-item-image={node.image.fluid.src}
+                            data-item-url="https://abad-stamps.netlify.com/products"
+                          >
+                            add to cart
+                          </button>
+                        </div>
                       </div>
-                      <p className="text-muted">
-                        <small>{node.description.description}</small>
-                      </p>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
         </section>

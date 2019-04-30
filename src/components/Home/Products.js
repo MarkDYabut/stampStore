@@ -29,7 +29,7 @@ export default function Products() {
       query={getProducts}
       render={data => {
         return (
-          <section className="py-50">
+          <section className="py-1">
             <div className="container-fluid">
               <Title title="" />
               <div className="row">
