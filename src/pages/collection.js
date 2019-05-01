@@ -1,37 +1,18 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
-import SEO from "../components/seo";
-import BackgroundSection from "../components/Globals/BackgroundSection";
-import Info from "../components/Home/Info";
 import BigMenu from "../components/Home/BigMenu";
-import Products from "../components/Home/Products";
-import Contact from "../components/Home/Contact";
+import Menu from "../components/Home/Menu";
 
-const IndexPage = ({ data }) => (
+const CollectionPage = ({ data }) => (
   <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    {/* <BackgroundSection
-      img={data.img.childImageSharp.fluid}
-      title="Abad Stamps"
-    /> */}
-    {/* <Info /> */}
-    <BigMenu items={data.menu} />
-    {/* <Products /> */}
-    {/* <Contact /> */}
+    <Menu items={data.menu} />
   </Layout>
 );
 
 export const query = graphql`
   {
-    img: file(relativePath: { eq: "default-background.jpeg" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid_tracedSVG
-        }
-      }
-    }
     menu: allContentfulStampSet {
       edges {
         node {
@@ -43,8 +24,12 @@ export const query = graphql`
           }
           price
           image {
-            fixed(width: 50, height: 50) {
+            fixed(width: 100, height: 100) {
               ...GatsbyContentfulFixed_tracedSVG
+            }
+            fluid(maxHeight: 1100) {
+              src
+              ...GatsbyContentfulFluid_tracedSVG
             }
           }
         }
@@ -53,4 +38,4 @@ export const query = graphql`
   }
 `;
 
-export default IndexPage;
+export default CollectionPage;
