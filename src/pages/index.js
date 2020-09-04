@@ -11,15 +11,16 @@ import Contact from "../components/Home/Contact";
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    Website moved to <a href="abadstamps.com">abadstamps.com</a>
+    {/* <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <BackgroundSection
       img={data.img.childImageSharp.fluid}
       title="Abad Stamps"
-    />
-    <Info />
+    /> */}
+    {/* <Info /> */}
     {/* <Menu items={data.menu} /> */}
     {/* <Products /> */}
-    <Contact />
+    {/* <Contact /> */}
   </Layout>
 );
 

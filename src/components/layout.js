@@ -9,14 +9,14 @@ import Navbar from "./Globals/Navbar";
 import Footer from "./Globals/Footer";
 const Layout = ({ children }) => (
   <>
-    <Navbar />
+    {/* <Navbar /> */}
     {children}
     {/* <Footer /> */}
   </>
 );
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 export default Layout;
